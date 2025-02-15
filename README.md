@@ -2,7 +2,10 @@
 ### Proyecto con diferentes transacciones bancarias en archivos .json (data dummy) y procesada en Databricks
 ## Primera Parte: Administración de Databricks
 ### Mediante Unity Catalog se configuró el Metastore para que el Workspace de Databricks estuviese asociado a un Azure Data Lake Storage específico para que todos los catalógos, esquemas y tablas creados puedan ser almacenados en dicho contenededor, tal como se observa en el esquema. 
-![image](https://github.com/user-attachments/assets/ebc7e687-12af-443d-93d3-5055aa55ba57)
+<p align="center">
+  <img width="460" height="600" src="https://github.com/user-attachments/assets/923417b7-4328-4cb0-a3a0-bda58773d48d">
+</p>
+
 ### A continuación presento los pasos a seguir para este proceso de configuración del Metastore con Unity Catalog:
 ### 1. Creación del Storage Account, recordando tildar la opción avanzada de Enable Hierarchical Namespace con el fin de convertirlo en un Data Lake Storage. Adicional crearle su respectivo contenedor y carpeta (donde desea almacenar catalógos, esquemas y tablas del Workspace de Databricks)
 ### 2. Creación del Sevicio de Azure Databricks
