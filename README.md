@@ -19,6 +19,13 @@
 ### 10. Seleccionamos el/los workspace de Databricks que deseo que esten direccionados al Metastore creado y pulsamos el boton Assign. 
 ### 11. Verificamos el usuario o administrador, Catalog - Metastore creado - Configurations - Usuario - Edit y verificamos o buscamos que este el usuario que coincida con el usuario de Azure Databricks y guardamos los cambios.
 ### Si queremos agregar otro workspace a este mismo Metastore podemos entrar a la pestaña de Workspace - Assign Workspace - Seleccionar - Assign.
-## Segunda Parte: Procesamiento de Datos en Databricks
+## Segunda Parte: Procesamiento de Datos en Azure Databricks
 ### El procesamiento de los datos fue realizado en Databricks bajo el siguiente esquema:
 ![image](https://github.com/user-attachments/assets/011279c4-fd67-459b-839e-8c3d5b089f9f)
+### 1. Fuente de Datos:
+### Se realizó el Notebook *Data_Dummy_al_DBFS* para la generación de data dummy con el fin de simular la fuente de datos correspondiente a 3000 archivos .json con diferentes estructuras y que muestran transacciones bancarias realizadas desde diferentes fuentes: app, web y atm (cajeros).
+### La data generada es almacenada en el Databricks File Systems (DBFS) en las siguientes rutas: "/dbfs/temp/trx_app", "/dbfs/temp/trx_web" y "/dbfs/temp/trx_atm".
+![image](https://github.com/user-attachments/assets/dfb0632d-be26-41c8-b7c8-c834902e8d44)
+
+
+
