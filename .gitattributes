@@ -1,1 +1,3 @@
+*.ipynb linguist-language=PySpark
 *.ipynb linguist-language=Python
+*.ipynb linguist-language=SQL
