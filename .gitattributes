@@ -1,1 +1,1 @@
-.Notebooks/*.python linguist-detectable=true
+*.ipynb linguist-language=Python
