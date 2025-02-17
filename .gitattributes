@@ -1,3 +1,1 @@
 .Notebooks/*.python linguist-detectable=true
-.Notebooks/*.spark linguist-detectable=true
-.Notebooks/*.sql linguist-detectable=true
