@@ -1,0 +1,3 @@
+*.python linguist-detectable=true
+*.spark linguist-detectable=true
+*.sql linguist-detectable=true
