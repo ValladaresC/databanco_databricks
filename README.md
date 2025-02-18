@@ -28,10 +28,16 @@
 ### La data generada es almacenada en el Databricks File Systems (DBFS) en las siguientes rutas: "/dbfs/temp/trx_app", "/dbfs/temp/trx_web" y "/dbfs/temp/trx_atm". Dichas carpetas fueron generadas con el notebook $${\color{red}Creando Carpetas DBFS}$$
 ### 2. Carga, Transformación y Preparación
 ### 2.1 Se realizó el Notebook $${\color{red}Notebook Bronze}$$ el cual lee los archivos .json guardados en el DBFS y reestructura la información contenida en cada archivo .json para que tenga la misma estructura y luego poder unirlos en un solo dataframe. Posteriormente, se unen los dataframes de las diferentes transacciones en uno solo llamado trx_bronze_df y se le agregan dos columnas de fecha de auditoria y, por último se genera la tabla delta trx_bronze en el catálogo y esquema generado para tal fin "catalgbanco.capabronze.trx_bronze". 
+> [!IMPORTANT]
+> Luego de generada la tabla delta trx_bronze, es una buena práctica optimizar la tabla delta mediante el comando que se ve en la siguiente imagen.
+> Esta acción disminuye el tamaño de la tabla delta y la cantidad de archivos parquet generados.
+
+![image](https://github.com/user-attachments/assets/d5811493-6172-4d80-89c9-2e4edebcd2ab)
+
 ### Como ultima tarea, este notebook mueve todos los archivos .json a otra carpeta respado, de esta manera quedarán vacias las carpetas "/dbfs/temp/trx_app", "/dbfs/temp/trx_web" y "/dbfs/temp/trx_atm" en espera de otra ingesta por lotes de archivos y así evitar duplicidad o reprocesamiento de la data anterior. 
 ### Se realizó un Notebook $${\color{red}Notebook Bronze Post First Ingesta}$$ el cual toma en cuenta todos aquellos archivos nuevos que lleguen al DBFS luego de la primera ingesta y unirá la nueva tabla delta con la tabla delta anterior (o la generada en la primera ingesta).
 > [!NOTE]
-> se realizó una consulta SQL llamada $${\color{red}Creacion Catalogo Esquemas}$$ donde se creó el catalogo de este proyecto 'catalgbanco' con los diferentes esquemas que representan cada capa (capabronze, capasilver, capagold) con el siguiente código SQL:
+> Se realizó una consulta SQL llamada $${\color{red}Creacion Catalogo Esquemas}$$ donde se creó el catalogo de este proyecto 'catalgbanco' con los diferentes esquemas que representan cada capa (capabronze, capasilver, capagold) con el siguiente código SQL:
 > 
 > CREATE CATALOG IF NOT EXISTS catalgbanco;
 > 
