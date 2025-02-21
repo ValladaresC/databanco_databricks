@@ -24,7 +24,7 @@
 ![image](https://github.com/user-attachments/assets/011279c4-fd67-459b-839e-8c3d5b089f9f)
 ### 1. Fuente de Datos:
 ### Se realizó el Notebook $${\color{red}Data Dummy al DBFS}$$ para la generación de data dummy con el fin de simular la fuente de datos correspondiente a 3000 archivos .json con diferentes estructuras y que muestran transacciones bancarias realizadas desde diferentes fuentes: app, web y atm (cajeros).
-![image](https://github.com/user-attachments/assets/dfb0632d-be26-41c8-b7c8-c834902e8d44)
+![image](https://github.com/user-attachments/assets/57d3b48f-c967-4d81-96ba-e34781f7cecd)
 ### La data generada es almacenada en el Databricks File Systems (DBFS) en las siguientes rutas: "/dbfs/temp/trx_app", "/dbfs/temp/trx_web" y "/dbfs/temp/trx_atm". Dichas carpetas fueron generadas con el notebook $${\color{red}Creando Carpetas DBFS}$$
 ### 2. Carga, Transformación y Preparación
 ### 2.1 Se realizó el Notebook $${\color{red}Notebook Bronze}$$ el cual lee los archivos .json guardados en el DBFS y reestructura la información contenida en cada archivo .json para que tenga la misma estructura y luego poder unirlos en un solo dataframe. Posteriormente, se unen los dataframes de las diferentes transacciones en uno solo llamado trx_bronze_df y se le agregan dos columnas de fecha de auditoria y, por último se genera la tabla delta trx_bronze en el catálogo y esquema generado para tal fin "catalgbanco.capabronze.trx_bronze". 
