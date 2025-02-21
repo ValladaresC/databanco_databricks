@@ -32,7 +32,8 @@
 > Luego de generada la tabla delta trx_bronze, es una buena práctica optimizar la tabla delta mediante el comando que se ve en la siguiente imagen.
 > Esta acción disminuye el tamaño de la tabla delta y la cantidad de archivos parquet generados.
 
-![image](https://github.com/user-attachments/assets/d5811493-6172-4d80-89c9-2e4edebcd2ab)
+![image](https://github.com/user-attachments/assets/e4f9c872-459b-459c-9a85-c8de892fc73b)
+
 
 ### Como ultima tarea, este notebook mueve todos los archivos .json a otra carpeta respado, de esta manera quedarán vacias las carpetas "/dbfs/temp/trx_app", "/dbfs/temp/trx_web" y "/dbfs/temp/trx_atm" en espera de otra ingesta por lotes de archivos y así evitar duplicidad o reprocesamiento de la data anterior. 
 ### Se realizó un Notebook $${\color{red}Notebook Bronze Post First Ingesta}$$ el cual toma en cuenta todos aquellos archivos nuevos que lleguen al DBFS luego de la primera ingesta y unirá la nueva tabla delta con la tabla delta anterior (o la generada en la primera ingesta).
